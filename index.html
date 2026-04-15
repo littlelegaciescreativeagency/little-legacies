@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Legacies Creative Agency</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor-outer"></div>
+<div id="cursor-inner"></div>
+<canvas id="trail-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    Little Legacies
+    <span>Creative Agency · Est. 2023</span>
+  </a>
+  <button id="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div id="fullscreen-menu">
+  <button id="close-menu">✕</button>
+  <div class="fm-inner">
+    <a href="#hero" class="fm-link" data-num="01">Home</a>
+    <a href="#about" class="fm-link" data-num="02">About Us</a>
+    <a href="#services" class="fm-link" data-num="03">Services</a>
+    <a href="#portfolio" class="fm-link" data-num="04">Portfolio</a>
+    <a href="#gallery" class="fm-link" data-num="05">Gallery</a>
+    <a href="#game-section" class="fm-link" data-num="06">Play</a>
+    <a href="#pricing" class="fm-link" data-num="07">Pricing</a>
+    <a href="#contact" class="fm-link" data-num="08">Contact</a>
+  </div>
+  <div class="fm-tagline">Where Vision Becomes Legacy</div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Gold liquid video background -->
+  <div id="hero-video-wrap">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="gold-ribbon.mp4" type="video/mp4">
+    </video>
+    <!-- Canvas for cursor interaction effects drawn OVER the video -->
+    <canvas id="video-overlay"></canvas>
+  </div>
+  <canvas id="glitter-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="logo-scene" id="logo-scene">
+      <div class="logo-ring ring-1"></div>
+      <div class="logo-ring ring-2"></div>
+      <div class="logo-ring ring-3"></div>
+      <div class="orbit-wrap orbit-a"><div class="orbit-drop" style="background:#C9982A"></div></div>
+      <div class="orbit-wrap orbit-b"><div class="orbit-drop" style="background:#2A8B8B"></div></div>
+      <div class="orbit-wrap orbit-c"><div class="orbit-drop" style="background:#C4748A"></div></div>
+      <div class="orbit-wrap orbit-d"><div class="orbit-drop" style="background:#7B4FA0"></div></div>
+      <div class="logo-glow-outer"></div>
+      <div class="logo-3d" id="logo3d">
+        <img src="logo.png" alt="Little Legacies Creative Agency" class="logo-img" id="logo-img">
+        <div class="logo-shine"></div>
+        <div class="logo-ripple" id="logo-ripple"></div>
+      </div>
+      <div class="float-tool tool-brush">🖌️</div>
+      <div class="float-tool tool-palette">🎨</div>
+      <div class="float-tool tool-diamond">💎</div>
+      <div class="float-tool tool-star">⭐</div>
+      <div class="float-tool tool-rose">🌹</div>
+    </div>
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">✦ Where Vision Becomes Legacy ✦</div>
+      <h1 class="hero-title">
+        <span class="ht-line">Rare.</span>
+        <span class="ht-line gold-text">Bold.</span>
+        <span class="ht-line">Unforgettable.</span>
+      </h1>
+      <p class="hero-sub">A creative agency that treats your brand as a work of art — because it is.</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-gold">Explore Our Work ✦</a>
+        <a href="#contact" class="btn-outline">Start a Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Branding ✦</span><span>Identity ✦</span><span>Book Covers ✦</span>
+    <span>Web Design ✦</span><span>Flyer Design ✦</span><span>Logo Design ✦</span>
+    <span>Art Direction ✦</span><span>Digital Art ✦</span><span>Legacy ✦</span>
+    <span>Branding ✦</span><span>Identity ✦</span><span>Book Covers ✦</span>
+    <span>Web Design ✦</span><span>Flyer Design ✦</span><span>Logo Design ✦</span>
+    <span>Art Direction ✦</span><span>Digital Art ✦</span><span>Legacy ✦</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-icon">🎨</div>
+        <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-card reveal d1">
+        <div class="stat-icon">⭐</div>
+        <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="stat-icon">💎</div>
+        <span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Industries Served</span>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="stat-icon">🌹</div>
+        <span class="stat-num" data-target="3">0</span><span class="stat-plus">yrs</span>
+        <span class="stat-label">Of Excellence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+
+      <!-- Left: decorative column -->
+      <div class="about-left reveal">
+        <div class="about-badge">
+          <span class="about-badge-eyebrow">✦ Est. 2023 ✦</span>
+          <div class="about-badge-title">Little<br>Legacies</div>
+          <div class="about-badge-sub">Creative Agency</div>
+          <div class="about-divider"></div>
+          <div class="about-values">
+            <div class="about-value"><span class="av-icon">🌹</span><span>Purpose-Driven</span></div>
+            <div class="about-value"><span class="av-icon">💎</span><span>Premium Quality</span></div>
+            <div class="about-value"><span class="av-icon">⭐</span><span>Accessible Pricing</span></div>
+            <div class="about-value"><span class="av-icon">🎨</span><span>Hands-On Craft</span></div>
+          </div>
+        </div>
+        <div class="about-quote reveal d2">
+          <p>"We exist to help dreamers become builders."</p>
+        </div>
+      </div>
+
+      <!-- Right: story text -->
+      <div class="about-right">
+        <div class="section-head reveal" style="text-align:left;margin-bottom:2rem;">
+          <span class="section-eyebrow">✦ Our Story ✦</span>
+          <h2 class="section-title">Built on Belief.<br><em>Driven by Purpose.</em></h2>
+          <div class="gold-rule" style="margin:0 0 0;"></div>
+        </div>
+
+        <p class="about-body reveal d1">
+          Little Legacies Creative Agency was founded on a simple but powerful belief: <strong>everyone deserves the opportunity to build something of their own.</strong>
+        </p>
+        <p class="about-body reveal d2">
+          In today's unpredictable economy, many talented individuals have faced unexpected setbacks — including the loss of jobs, stability, and security. Our founder created Little Legacies with a deeper purpose in mind: to support those who are ready to rebuild, take control of their future, and turn their ideas into meaningful, lasting businesses.
+        </p>
+        <p class="about-body reveal d3">
+          Through a full range of creative services — including website design, branding, graphic design, consultations, video production, photography, and editing — we provide the tools, guidance, and creative direction needed to bring your vision to life. Whether you're starting from scratch or reinventing your path, our team works closely with you to develop solutions that are not only visually compelling, but strategically designed for growth.
+        </p>
+        <p class="about-body reveal d1">
+          Our approach is hands-on, collaborative, and rooted in understanding your unique story. Because to us, your business isn't just a project — <em>it's your next chapter.</em>
+        </p>
+        <p class="about-body reveal d2">
+          At Little Legacies, we are committed to delivering premium-quality work at accessible pricing, ensuring that professional creative support is within reach for entrepreneurs at every stage.
+        </p>
+
+        <div class="about-cta reveal d3">
+          <p class="about-cta-line">You don't need everything figured out — you just need a vision and the willingness to start.</p>
+          <div class="about-cta-btns">
+            <a href="#contact" class="btn-gold">Bring Your Vision ✦</a>
+            <a href="#services" class="btn-outline">See Our Services</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ What We Create ✦</span>
+      <h2 class="section-title">Art-Forward Services<br>for <em>Extraordinary</em> Brands</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal d1" data-color="#C9982A">
+        <div class="svc-splash"></div>
+        <div class="svc-num">01</div>
+        <div class="svc-icon-wrap"><span class="svc-icon">🌹</span></div>
+        <h3>Branding &amp; Identity</h3>
+        <p>We craft brand identities that tell your story with power, elegance, and lasting impact across every touchpoint.</p>
+        <ul class="svc-list">
+          <li>Logo Design &amp; Brand Mark</li>
+          <li>Brand Strategy &amp; Positioning</li>
+          <li>Color Palette &amp; Typography</li>
+          <li>Brand Guidelines Document</li>
+          <li>Stationery &amp; Print Design</li>
+        </ul>
+        <div class="svc-hover-bar"></div>
+      </div>
+      <div class="svc-card reveal d2" data-color="#2A8B8B">
+        <div class="svc-splash"></div>
+        <div class="svc-num">02</div>
+        <div class="svc-icon-wrap"><span class="svc-icon">💎</span></div>
+        <h3>Digital Experiences</h3>
+        <p>Immersive websites and platforms designed to captivate, convert, and leave your audience completely breathless.</p>
+        <ul class="svc-list">
+          <li>Custom Website Design &amp; Dev</li>
+          <li>E-Commerce Solutions</li>
+          <li>Landing Page Optimization</li>
+          <li>SEO &amp; Performance</li>
+          <li>Social Media Design</li>
+        </ul>
+        <div class="svc-hover-bar"></div>
+      </div>
+      <div class="svc-card reveal d3" data-color="#7B4FA0">
+        <div class="svc-splash"></div>
+        <div class="svc-num">03</div>
+        <div class="svc-icon-wrap"><span class="svc-icon">✨</span></div>
+        <h3>Print &amp; Flyer Design</h3>
+        <p>Eye-catching print materials and promotional designs that demand attention and drive real-world results.</p>
+        <ul class="svc-list">
+          <li>Event Flyers &amp; Posters</li>
+          <li>Grand Opening Materials</li>
+          <li>Book Covers &amp; Publishing</li>
+          <li>Menu &amp; Signage Design</li>
+          <li>Campaign Conceptualization</li>
+        </ul>
+        <div class="svc-hover-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ Our Work ✦</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">A selection of our finest work across branding, digital, and design</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="port-filters reveal">
+      <button class="pf-btn active" data-filter="all">All</button>
+      <button class="pf-btn" data-filter="branding">Branding</button>
+      <button class="pf-btn" data-filter="digital">Digital</button>
+      <button class="pf-btn" data-filter="print">Print &amp; Cover</button>
+    </div>
+
+    <div class="port-grid" id="port-grid">
+
+      <div class="port-card reveal" data-category="print" data-tilt>
+        <div class="port-bg" style="background-image:url('project-crystal-heart.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Book Cover · Publishing</span>
+          <h3>Crystal Heart<br>Earthly Soul</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+      <div class="port-card reveal d1" data-category="digital" data-tilt>
+        <div class="port-bg" style="background-image:url('project-kagehana-site.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Website Design · Digital</span>
+          <h3>Kagehana<br>Website Mockup</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+      <div class="port-card reveal d2" data-category="digital" data-tilt>
+        <div class="port-bg" style="background-image:url('project-shadow-protocol.jpg')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Author Website · Digital</span>
+          <h3>Shadow Protocol<br>Author Site</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+      <div class="port-card reveal d3" data-category="digital" data-tilt>
+        <div class="port-bg" style="background-image:url('project-eleanor-grace.jpg')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Digital Products · Web</span>
+          <h3>Eleanor Grace<br>Author Platform</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+      <div class="port-card reveal d1" data-category="digital" data-tilt>
+        <div class="port-bg" style="background-image:url('project-evergreen.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Website Mockup · Design</span>
+          <h3>Evergreen Myst<br>Creative Studio</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+      <div class="port-card reveal d2" data-category="print" data-tilt>
+        <div class="port-bg" style="background-image:url('project-lumina.jpg')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">Event Flyer · Print</span>
+          <h3>Lumina Plaza<br>Grand Opening</h3>
+          <span class="port-view">View Project →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ Design Gallery ✦</span>
+      <h2 class="section-title">Flyer &amp; Print Work</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">Click any piece to view full size</p>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal" data-img="flyer-liberty.jpg" data-title="Liberty Armory Grand Opening" data-cat="Event Flyer">
+        <img src="flyer-liberty.jpg" alt="Liberty Armory Grand Opening Flyer">
+        <div class="gallery-hover">
+          <span class="gh-cat">Event Flyer</span>
+          <span class="gh-title">Liberty Armory</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d1" data-img="flyer-calmchimes.jpg" data-title="CalmChimes Hot Springs" data-cat="Grand Opening">
+        <img src="flyer-calmchimes.jpg" alt="CalmChimes Hot Springs Flyer">
+        <div class="gallery-hover">
+          <span class="gh-cat">Grand Opening</span>
+          <span class="gh-title">CalmChimes</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d2" data-img="flyer-speedywash.jpg" data-title="SpeedyWash Car Wash" data-cat="Promotional Flyer">
+        <img src="flyer-speedywash.jpg" alt="SpeedyWash Flyer">
+        <div class="gallery-hover">
+          <span class="gh-cat">Promotional Flyer</span>
+          <span class="gh-title">SpeedyWash</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d3" data-img="flyer-deepsea.jpg" data-title="Miami Tide Charters" data-cat="Adventure Flyer">
+        <img src="flyer-deepsea.jpg" alt="Miami Tide Deep Sea Fishing Flyer">
+        <div class="gallery-hover">
+          <span class="gh-cat">Adventure Flyer</span>
+          <span class="gh-title">Miami Tide Charters</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d1" data-img="flyer-djretro.jpg" data-title="DJ Retro — City Nights" data-cat="Event Flyer">
+        <img src="flyer-djretro.jpg" alt="DJ Retro Flyer">
+        <div class="gallery-hover">
+          <span class="gh-cat">Event Flyer</span>
+          <span class="gh-title">DJ Retro</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d2" data-img="flyer-kagehana-full.png" data-title="Kagehana — Full Design" data-cat="Brand Design">
+        <img src="flyer-kagehana-full.png" alt="Kagehana Full Design">
+        <div class="gallery-hover">
+          <span class="gh-cat">Brand Design</span>
+          <span class="gh-title">Kagehana Full Art</span>
+          <span class="gh-action">🔍 View Full Size</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div id="lb-backdrop"></div>
+  <button id="lb-close">✕</button>
+  <button id="lb-prev">‹</button>
+  <button id="lb-next">›</button>
+  <div id="lb-inner">
+    <img id="lb-img" src="" alt="">
+    <div id="lb-caption">
+      <span id="lb-cat"></span>
+      <span id="lb-title"></span>
+    </div>
+  </div>
+</div>
+
+<!-- INTERACTIVE PAINT ZONE -->
+<section id="paint-zone">
+  <div class="pz-header reveal">
+    <span class="section-eyebrow">✦ Interactive Canvas ✦</span>
+    <h2 class="section-title">Paint Your Vision</h2>
+    <p class="pz-sub">Move your cursor across the canvas — click to splatter. Your brush, your masterpiece.</p>
+  </div>
+  <div id="interactive-canvas-wrap">
+    <canvas id="user-paint-canvas"></canvas>
+    <div class="pz-tools">
+      <button class="pz-btn active" data-color="#C9982A" data-size="12">🖌️ Gold</button>
+      <button class="pz-btn" data-color="#2A8B8B" data-size="12">🖌️ Teal</button>
+      <button class="pz-btn" data-color="#C4748A" data-size="12">🖌️ Rose</button>
+      <button class="pz-btn" data-color="#7B4FA0" data-size="12">🖌️ Purple</button>
+      <button class="pz-btn" data-color="#F7E08A" data-size="20">🖌️ Glow</button>
+      <button class="pz-btn" id="splatter-btn" data-color="#C9982A" data-size="8">💥 Splat!</button>
+      <button class="pz-btn" id="clear-canvas-btn">🗑️ Clear</button>
+    </div>
+  </div>
+</section>
+
+<!-- MINI GAME -->
+<section id="game-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ Play &amp; Create ✦</span>
+      <h2 class="section-title">Art Block — Creative Tetris</h2>
+      <p class="game-sub">Stack the art supplies! Arrow keys or WASD · Up/W to rotate · Space to drop</p>
+    </div>
+    <div class="game-layout">
+      <div class="game-frame reveal">
+        <canvas id="tetris-canvas" width="280" height="560"></canvas>
+        <div id="game-overlay">
+          <div class="go-inner">
+            <div class="go-logo">🎨</div>
+            <h3>Art Block</h3>
+            <p>Stack pieces to clear lines and score!</p>
+            <button id="start-tetris" class="btn-gold">Play Now ✦</button>
+            <div class="controls-hint">
+              <span>← → Move</span><span>↑ Rotate</span><span>↓ Drop</span><span>Space Hard Drop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game-sidebar reveal d2">
+        <div class="gs-card"><span class="gs-label">Score</span><span class="gs-val" id="t-score">0</span></div>
+        <div class="gs-card"><span class="gs-label">Level</span><span class="gs-val" id="t-level">1</span></div>
+        <div class="gs-card"><span class="gs-label">Lines</span><span class="gs-val" id="t-lines">0</span></div>
+        <div class="gs-card"><span class="gs-label">Best</span><span class="gs-val" id="t-best">0</span></div>
+        <div class="gs-next"><span class="gs-label">Next</span><canvas id="next-canvas" width="100" height="100"></canvas></div>
+        <button id="pause-tetris" class="btn-outline" style="width:100%;margin-top:1rem;display:none">Pause</button>
+        <button id="restart-tetris" class="btn-outline" style="width:100%;margin-top:.5rem;display:none">Restart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US — redesigned -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <!-- Gold orb video replaces LLC canvas -->
+      <div class="why-visual reveal">
+        <div class="why-orb-wrap">
+          <video id="why-orb-video" autoplay muted loop playsinline preload="auto">
+            <source src="gold-orb.mp4" type="video/mp4">
+          </video>
+          <div class="why-orb-glow"></div>
+        </div>
+      </div>
+      <div class="why-text">
+        <span class="section-eyebrow reveal">✦ Why Choose Us ✦</span>
+        <h2 class="section-title reveal">Built Different.<br>Designed for <em>Legacy.</em></h2>
+        <div class="gold-rule reveal"></div>
+        <div class="why-points">
+          <div class="why-pt reveal d1">
+            <div class="wpt-icon-wrap"><svg viewBox="0 0 40 40" width="36" height="36"><circle cx="20" cy="20" r="18" fill="none" stroke="#C9982A" stroke-width="1.5"/><path d="M12 20 L18 26 L28 14" stroke="#C9982A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h4>Strategy Meets Art</h4>
+              <p>Every design decision rooted in business strategy. We make things beautiful AND functional — that's the legacy difference.</p>
+            </div>
+          </div>
+          <div class="why-pt reveal d2">
+            <div class="wpt-icon-wrap"><svg viewBox="0 0 40 40" width="36" height="36"><circle cx="20" cy="20" r="18" fill="none" stroke="#C9982A" stroke-width="1.5"/><path d="M14 24 C14 18 26 18 26 24" stroke="#C9982A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="20" cy="15" r="4" fill="none" stroke="#C9982A" stroke-width="1.5"/></svg></div>
+            <div>
+              <h4>True Creative Partnership</h4>
+              <p>You're not just a client — you're a co-creator. We pour ourselves into your vision with care, precision, and passion.</p>
+            </div>
+          </div>
+          <div class="why-pt reveal d3">
+            <div class="wpt-icon-wrap"><svg viewBox="0 0 40 40" width="36" height="36"><circle cx="20" cy="20" r="18" fill="none" stroke="#C9982A" stroke-width="1.5"/><polygon points="20,10 23,17 31,17 25,22 27,30 20,25 13,30 15,22 9,17 17,17" fill="none" stroke="#C9982A" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h4>Results That Endure</h4>
+              <p>Beautiful work that drives real outcomes — more leads, higher conversions, a brand people never forget.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ Investment ✦</span>
+      <h2 class="section-title">Transparent Pricing</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal d1">
+        <div class="pc-glow"></div>
+        <span class="pc-tier">Starter</span>
+        <h3 class="pc-name">Seed Package</h3>
+        <div class="pc-price"><sup>$</sup>299</div>
+        <span class="pc-period">One-time project</span>
+        <ul class="pc-feats">
+          <li>Logo Design (3 concepts)</li>
+          <li>Brand Color Palette</li>
+          <li>1 Social Media Kit</li>
+          <li>Business Card Design</li>
+          <li class="dim">Website Design</li>
+          <li class="dim">Video / Motion</li>
+        </ul>
+        <a href="#contact" class="btn-outline" style="display:block;text-align:center">Get Started</a>
+      </div>
+      <div class="price-card featured reveal d2">
+        <div class="pc-badge">✦ Most Popular</div>
+        <div class="pc-glow"></div>
+        <span class="pc-tier">Signature</span>
+        <h3 class="pc-name">Legacy Package</h3>
+        <div class="pc-price"><sup>$</sup>799</div>
+        <span class="pc-period">Complete brand build</span>
+        <ul class="pc-feats">
+          <li>Full Brand Identity System</li>
+          <li>5-Page Custom Website</li>
+          <li>Social Media Full Kit</li>
+          <li>Brand Strategy Session</li>
+          <li>Motion Logo Animation</li>
+          <li>Brand Guidelines PDF</li>
+        </ul>
+        <a href="#contact" class="btn-gold" style="display:block;text-align:center;text-decoration:none;border:none">Choose Legacy ✦</a>
+      </div>
+      <div class="price-card reveal d3">
+        <div class="pc-glow"></div>
+        <span class="pc-tier">Premium</span>
+        <h3 class="pc-name">Dynasty Package</h3>
+        <div class="pc-price"><sup>$</sup>1,499</div>
+        <span class="pc-period">Full agency partnership</span>
+        <ul class="pc-feats">
+          <li>Everything in Legacy</li>
+          <li>E-Commerce Website</li>
+          <li>Video Production</li>
+          <li>3-Month Social Strategy</li>
+          <li>Monthly Retainer (3mo)</li>
+          <li>Quarterly Brand Review</li>
+        </ul>
+        <a href="#contact" class="btn-outline" style="display:block;text-align:center">Go Dynasty</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ Client Love ✦</span>
+      <h2 class="section-title">What They Say</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal d1">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-txt">"Little Legacies completely transformed my brand. The attention to detail and artistic vision exceeded every expectation. I finally feel like my business reflects who I truly am."</p>
+        <div class="test-auth">
+          <div class="t-av" style="background:linear-gradient(135deg,#C9982A,#C4748A)">MJ</div>
+          <div><span class="t-name">Maya Johnson</span><span class="t-role">CEO, Bloom Beauty Co.</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal d2">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-txt">"The website they built tripled my inquiries in the first month. Not just beautiful — it actually converts visitors into paying clients. Worth every single penny."</p>
+        <div class="test-auth">
+          <div class="t-av" style="background:linear-gradient(135deg,#2A8B8B,#3A6FA8)">DK</div>
+          <div><span class="t-name">David Kim</span><span class="t-role">Founder, Sovereign Media</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal d3">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-txt">"Working with Little Legacies felt like having a full creative team in my corner. Passionate, professional, and genuinely invested in my success. A rare find."</p>
+        <div class="test-auth">
+          <div class="t-av" style="background:linear-gradient(135deg,#7B4FA0,#C4748A)">SR</div>
+          <div><span class="t-name">Sophia Rivers</span><span class="t-role">Author &amp; Brand Coach</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <span class="section-eyebrow">✦ Get In Touch ✦</span>
+        <h2 class="section-title">Let's Build Your<br>Legacy <em>Together</em></h2>
+        <div class="gold-rule"></div>
+        <p class="contact-desc">Ready to transform your brand? Let's create something extraordinary — together.</p>
+        <div class="c-item"><div class="c-ic">📧</div><a href="mailto:littlelegacycreativeagency@gmail.com">littlelegacycreativeagency@gmail.com</a></div>
+        <div class="c-item"><div class="c-ic">📱</div><a href="tel:+15053732912">(505) 373-2912</a></div>
+        <div class="c-item"><div class="c-ic">🌍</div><span>Serving clients worldwide</span></div>
+        <div class="status-row">
+          <div class="status-dot"></div>
+          <span>Currently accepting new projects</span>
+        </div>
+      </div>
+      <div class="contact-right reveal d2">
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="Your first name" required></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Your last name" required></div>
+          </div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+          <div class="fg">
+            <label>Service Interest</label>
+            <select required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Branding &amp; Identity</option>
+              <option>Logo Design</option>
+              <option>Website Design</option>
+              <option>Flyer / Print Design</option>
+              <option>Book Cover Design</option>
+              <option>Full Legacy Package</option>
+              <option>Dynasty Partnership</option>
+              <option>Other / Custom</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Budget Range</label>
+            <select>
+              <option value="" disabled selected>Select budget</option>
+              <option>Under $300</option>
+              <option>$300 – $800</option>
+              <option>$800 – $1,500</option>
+              <option>$1,500+</option>
+            </select>
+          </div>
+          <div class="fg"><label>Your Vision</label><textarea rows="4" placeholder="Share your vision, goals, and project details..."></textarea></div>
+          <button type="submit" class="btn-gold" style="width:100%;border:none;font-size:.78rem">Send My Inquiry ✦</button>
+        </form>
+        <div id="form-success" style="display:none">
+          <div class="fs-icon">🌹✨</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you! We'll be in touch within 24 hours to begin building your legacy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-paint"></div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-txt">Little Legacies</div>
+        <div class="footer-logo-sub">Creative Agency · Est. 2023</div>
+        <p>Where small beginnings become extraordinary legacies. Crafting brands that endure, inspire, and leave a lasting mark on the world.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fc">
+          <h4>Services</h4>
+          <a href="#services">Branding &amp; Identity</a>
+          <a href="#services">Digital Experiences</a>
+          <a href="#services">Print &amp; Flyer Design</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="fc">
+          <h4>Explore</h4>
+          <a href="#portfolio">Featured Projects</a>
+          <a href="#gallery">Design Gallery</a>
+          <a href="#game-section">Play a Game</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 Little Legacies Creative Agency · All rights reserved</p>
+      <div class="social-links">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <!-- Threads -->
+        <a href="https://threads.net" target="_blank" class="social-link" aria-label="Threads" title="Threads">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.068V12c0-3.509.85-6.37 2.495-8.491C5.845 1.204 8.598.024 12.18 0h.014c2.746.02 5.043.725 6.827 2.098 1.677 1.29 2.858 3.13 3.51 5.467l-2.433.703c-.522-1.95-1.452-3.46-2.742-4.476C16.174 2.74 14.396 2.19 12.18 2.19l-.01.001c-2.97.02-5.135.965-6.635 2.852C4.11 6.919 3.692 9.239 3.692 12c0 2.761.418 5.081 1.843 6.957 1.5 1.887 3.665 2.832 6.635 2.852h.01c2.72-.022 4.566-.85 5.863-2.542.96-1.252 1.56-2.952 1.796-5.132-1.004.402-2.16.617-3.41.617-3.95 0-7.138-2.24-7.397-6.147-.05-.741.01-1.48.176-2.188.47-2.01 1.91-3.538 3.885-4.152A8.07 8.07 0 0 1 15.396 2c1.02.06 2.045.318 2.986.76l-.894 2.01A5.808 5.808 0 0 0 15.4 4.19c-.49-.017-.977.05-1.444.193-1.224.372-2.124 1.318-2.44 2.634-.11.46-.147.929-.111 1.393.176 2.334 1.877 3.816 4.537 3.816 1.423 0 2.618-.382 3.434-1.054l.003 1.22c0 .069-.003.138-.005.207h.001c-.023 2.682-.712 4.863-2.05 6.48C16.055 23.13 14.31 24 12.186 24Z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <!-- Square Online -->
+        <a href="https://squarespace.com" target="_blank" class="social-link" aria-label="Square Online" title="Square Online">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-5 10H10v-2h4v2zm2-4H8V7h8v2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- GAME OVER MODAL -->
+<div id="game-modal" style="display:none">
+  <div class="gm-inner">
+    <div class="gm-icon">🎨</div>
+    <h3 id="gm-title">Game Over!</h3>
+    <p>Score: <strong id="gm-score">0</strong></p>
+    <p>Best: <strong id="gm-best">0</strong></p>
+    <button class="btn-gold" id="gm-restart">Play Again ✦</button>
+    <button class="btn-outline" id="gm-close">Close</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
